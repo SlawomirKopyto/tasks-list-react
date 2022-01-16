@@ -5,7 +5,7 @@ import Section from "./Section"
 import Container from "./Container"
 import { useEffect, useState } from "react";
 
-const xxx = () => {
+const initialState = () => {
   const tasksFromLocalStorage = localStorage.getItem("tasks");
   return tasksFromLocalStorage
   ? JSON.parse(tasksFromLocalStorage)
@@ -14,7 +14,7 @@ const xxx = () => {
 
 function App() {
   const [hideDone, setHideDone] = useState(false);
-  const [tasks, setTasks] = useState(xxx);
+  const [tasks, setTasks] = useState(initialState);
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
